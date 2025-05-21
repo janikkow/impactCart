@@ -1,0 +1,6 @@
+body { font-family:sans-serif; margin:20px; }
+nav { margin-bottom:20px; }
+nav a { margin-right:10px; text-decoration:none; }
+section, article { margin-bottom:20px; }
+article { display:none; }
+article:target { display:block; }

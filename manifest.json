@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Gutes tun beim Einkaufen",
+  "version": "1.0",
+  "description": "Dummy-Extension mit Login & Landing-Pages",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon16.png",
+      "128": "icon16.png"
+    }
+  },
+  "permissions": ["storage"],
+  "host_permissions": [],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon16.png",
+    "128": "icon16.png"
+  }
+}

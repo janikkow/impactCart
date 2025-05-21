@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Gutes tun</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="login-container">
+    <h2>Bitte einloggen</h2>
+    <input id="user"    placeholder="Username">
+    <input id="pass" type="password" placeholder="Passwort">
+    <button id="login-btn">Login</button>
+    <p id="login-error"></p>
+  </div>
+
+  <!-- MAIN UI -->
+  <div id="main-container">
+    <h1>Gutes tun beim Einkaufen</h1>
+    <div class="info">
+      ✓ Diese Seite unterstützt Spenden über Affiliate-Links
+      <p>Wenn du jetzt einkaufst, fließt ein Teil an eine NGO.</p>
+    </div>
+    <button id="toggle-btn">SPENDEN AKTIVIEREN</button>
+    <label>Du unterstützt aktuell:</label>
+    <select id="charity">
+      <option>SOS Kinderdorf</option>
+      <option>German Zero</option>
+      <option>Die Tafeln</option>
+      <option>Deutsches Rotes Kreuz</option>
+      <option>Aktion Deutschland Hilft</option>
+      <option>Trinkwasserwald</option>
+    </select>
+    <div class="progress-bar"><div id="progress"></div></div>
+    <p id="amount">Dein Beitrag: 0,00 € gesammelt</p>
+    <div class="footer">
+      <a href="#" data-page="about">Über uns</a>
+      <a href="#" data-page="privacy">Datenschutz</a>
+      <a href="#" data-page="more">Mehr erfahren</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
