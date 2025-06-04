@@ -1,27 +1,4 @@
 DocumentReady(function(){
-  const barCtx = document.getElementById('donationChart');
-  if(barCtx){
-    const monthly = [4300,5200,6100,4800,5900,6700,5500,6200,5300,6100,4900,6600];
-    new Chart(barCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Jan','Feb','Mrz','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
-        datasets: [{
-          label: 'Gesamtspenden €',
-          data: monthly,
-          backgroundColor: 'rgba(10,62,98,0.7)'
-        }]
-      },
-      options: {
-        maintainAspectRatio: false,
-        plugins: { legend: { display:false } },
-        scales: { y: { beginAtZero:true } }
-      }
-    });
-  }
-});
-
-DocumentReady(function(){
   const track = document.querySelector('.carousel-track');
   if(track){
     track.innerHTML += track.innerHTML;
@@ -45,6 +22,55 @@ DocumentReady(function(){
     });
     text.textContent = percent.toFixed(0) + '% deines Jahresziels';
     goalAmount.textContent = 'Ziel: ' + goal.toFixed(0) + ' \u20AC';
+  }
+});
+
+DocumentReady(function(){
+  const canvas = document.getElementById('impactChart');
+  if(canvas){
+    const monthNames = ['Januar','Februar','M\u00e4rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const now = new Date();
+    const labels = [];
+    for(let i = 5; i >= 0; i--){
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      labels.push(monthNames[d.getMonth()]);
+    }
+    const totals = labels.map(() => Math.floor(Math.random() * (9000 - 4000 + 1)) + 4000);
+    const ctx = canvas.getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Impact Cart Gesamt (\u20AC)',
+          data: totals,
+          backgroundColor: '#ff9800',
+          borderRadius: 4,
+          barThickness: 40
+        }]
+      },
+      options: {
+        animation: {
+          duration: 2000,
+          easing: 'easeOutQuart'
+        },
+        scales: {
+          x: { title: { display: true, text: 'Monat' } },
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Gesamtbetrag (\u20AC)' }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.parsed.y.toLocaleString()} \u20AC`
+            }
+          }
+        }
+      }
+    });
   }
 });
 
