@@ -9,6 +9,7 @@ Eine Browser-Extension (Chrome MV3) als Dummy zum Aktivieren von Spenden über A
 * Auswahl einer gemeinnützigen Organisation
 * Fortschrittsanzeige (gesammelter Betrag)
 * Links zu "Über uns", "Datenschutz" und "Mehr erfahren"
+* Index-Seite nach Login mit Partnerübersicht und Spendenchart
 * Landing-Page mit Account-Übersicht und Info-Bereichen
 
 ## Voraussetzungen
@@ -41,13 +42,14 @@ Eine Browser-Extension (Chrome MV3) als Dummy zum Aktivieren von Spenden über A
 GutesTuen/
 ├─ manifest.json       # Manifest V3
 ├─ popup.html/css/js    # Haupt-Popup mit Login & UI
-├─ landing.html/css/js  # Landing-Page mit Info & Übersicht
+├─ index.html/css/js    # Erste Seite nach Login
+├─ landing.html/css/js  # Info- und Accountbereiche
 └─ icons/               # Beispiel-Icons (16/48/128 px)
 ```
 
 ## Anpassung
 
-* Texte in `landing.html` ändern
+* Texte in `index.html` oder `landing.html` ändern
 * Styles in `.css` anpassen
 * Icons in `icons/` ersetzen
 
