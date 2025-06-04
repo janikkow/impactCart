@@ -42,5 +42,12 @@ DocumentReady(function(){
   }
 });
 
+DocumentReady(function(){
+  const track = document.querySelector('.carousel-track');
+  if(track){
+    track.innerHTML += track.innerHTML;
+  }
+});
+
 // Removed the local DocumentReady function. Ensure common.js provides this function.
 
