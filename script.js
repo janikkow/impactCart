@@ -26,11 +26,12 @@ DocumentReady(function(){
 });
 
 DocumentReady(function(){
-  const ctx = document.getElementById('impactChart');
-  if(ctx){
+  const canvas = document.getElementById('impactChart');
+  if(canvas){
     const monate = ['Januar','Februar','M\u00e4rz','April','Mai','Juni'];
     const gesamtStand = [1200,2500,4100,5800,7000,8300];
-    new Chart(ctx.getContext('2d'), {
+    const ctx = canvas.getContext('2d');
+    new Chart(ctx, {
       type: 'bar',
       data: {
         labels: monate,
