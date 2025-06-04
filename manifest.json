@@ -3,6 +3,13 @@
   "name": "Gutes tun beim Einkaufen",
   "version": "1.0",
   "description": "Dummy-Extension mit Login & Landing-Pages",
+  "permissions": ["storage", "tabs", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://www.amazon.de/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -11,8 +18,6 @@
       "128": "icon16.png"
     }
   },
-  "permissions": ["storage", "tabs"],
-  "host_permissions": [],
   "icons": {
     "16": "icon16.png",
     "48": "icon16.png",
