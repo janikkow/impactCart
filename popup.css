@@ -1,14 +1,65 @@
-body { margin:0; font-family:sans-serif; width:300px; padding:15px; }
-#login-container, #main-container { display:none; }
+:root {
+  --main-color: #0A3E62;
+}
+
+body {
+  margin:0;
+  font-family:sans-serif;
+  width:300px;
+  padding:15px;
+  text-align:center;
+  background:#fff;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+#login-container, #main-container {
+  display:none;
+  background:#fff;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  padding:15px;
+}
 #login-container input { width:100%; margin:5px 0; padding:5px; }
-#login-container button { width:100%; padding:8px; }
+#login-container button {
+  width:100%;
+  padding:8px;
+  background: var(--main-color);
+  color:#fff;
+  border:none;
+  border-radius:4px;
+  box-shadow:0 2px 4px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
 #login-error { color:red; font-size:12px; }
 
 h1, h2 { margin:0 0 10px; font-size:18px; }
 .info { font-size:12px; margin-bottom:10px; }
-#toggle-btn { width:100%; padding:8px; margin:10px 0; border:2px solid #000; background:#fff; cursor:pointer; }
-#toggle-btn.active { background:#8f8; }
-#dashboard-btn { width:100%; padding:8px; margin:5px 0; cursor:pointer; }
+#toggle-btn {
+  width:100%;
+  padding:8px;
+  margin:10px 0;
+  border:none;
+  background: var(--main-color);
+  color:#fff;
+  border-radius:4px;
+  box-shadow:0 2px 4px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
+#toggle-btn.active {
+  background:#8f8;
+}
+#dashboard-btn {
+  width:100%;
+  padding:8px;
+  margin:5px 0;
+  background: var(--main-color);
+  color:#fff;
+  border:none;
+  border-radius:4px;
+  box-shadow:0 2px 4px rgba(0,0,0,0.3);
+  cursor:pointer;
+}
 label, select { display:block; margin:5px 0; width:100%; }
 select { padding:5px; }
 .progress-bar { width:100%; height:8px; background:#eee; margin:10px 0; }
@@ -16,3 +67,9 @@ select { padding:5px; }
 #amount { font-size:14px; }
 .footer { font-size:10px; display:flex; justify-content:space-between; margin-top:10px; }
 .footer a { text-decoration:none; cursor:pointer; }
+
+hr {
+  border:0;
+  border-top:1px solid #ccc;
+  margin:10px 0;
+}

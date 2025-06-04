@@ -57,7 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.footer a').forEach(a=>{
       a.addEventListener('click', e=>{
         const page = e.target.dataset.page;
-        chrome.tabs.create({url: chrome.runtime.getURL(`landing.html#${page}`)});
+        let url = `landing.html#${page}`;
+        if(page==='about') url = 'about.html';
+        if(page==='privacy') url = 'datenschutz.html';
+        chrome.tabs.create({url: chrome.runtime.getURL(url)});
       });
     });
   }

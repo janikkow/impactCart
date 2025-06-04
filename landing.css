@@ -1,7 +1,7 @@
-body { font-family:sans-serif; margin:20px; }
+body { font-family:sans-serif; margin:20px; text-align:center; }
 nav {
   margin-bottom:20px;
-  background:#0A3E62;
+  background: #0A3E62;
   padding:10px;
 }
 nav a {
