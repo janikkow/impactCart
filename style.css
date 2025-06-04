@@ -8,6 +8,9 @@ body {
   padding: 0;
   line-height: 1.6;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -92,22 +95,24 @@ section {
   margin: 0 auto;
 }
 
-.summary {
+.chart-wrapper {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.summary .box {
+.chart-wrapper .box {
   background: #f2f2f2;
   padding: 10px;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 footer {
   background: #f2f2f2;
   text-align: center;
   padding: 10px 0;
+  margin-top: auto;
 }
 
 footer a {
@@ -161,11 +166,12 @@ canvas {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+
 .charts {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 40px;
   margin-bottom: 20px;
 }
 
