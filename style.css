@@ -76,3 +76,53 @@ footer a {
   color: #333;
   text-decoration: none;
 }
+nav {
+  background: var(--main-color);
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.8em;
+}
+
+.grid {
+  justify-items: center;
+}
+.card h3 {
+  min-height: 2.5em;
+}
+
+#account-dropdown {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+#account-dropdown .account-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 200px;
+}
+#account-dropdown:hover .account-content {
+  display: block;
+}
+
+canvas {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}

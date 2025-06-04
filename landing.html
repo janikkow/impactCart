@@ -6,19 +6,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="#about">Über uns</a>
-    <a href="#privacy">Datenschutz</a>
-    <a href="#more">Mehr erfahren</a>
-    <a href="#" id="logout">Logout</a>
-  </nav>
-
-  <section id="account-overview">
-    <h2>Account-Übersicht</h2>
-    <p>Benutzer: <span id="acc-user"></span></p>
-    <p>NGO:       <span id="acc-charity"></span></p>
-    <p>Beitrag:   <span id="acc-amount"></span> €</p>
-  </section>
+  <header>
+    <h1>Impact Cart</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="landing.html">Info</a>
+      <a href="about.html">Über uns</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="login.html">Login</a>
+    </nav>
+    <h2 class="page-title">Info</h2>
+  </header>
+  <div id="account-dropdown">Account
+    <div class="account-content">
+      <p>Benutzer: <span id="acc-user"></span></p>
+      <p>NGO: <span id="acc-charity"></span></p>
+      <p>Beitrag: <span id="acc-amount"></span> €</p>
+    </div>
+  </div>
 
   <article id="about">
     <h2>Über uns</h2>
@@ -36,5 +42,6 @@
   </article>
 
   <script src="landing.js"></script>
+  <script src="common.js"></script>
 </body>
 </html>
