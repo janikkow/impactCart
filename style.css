@@ -10,6 +10,16 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('backgroundTop.png') center/cover no-repeat;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 section {
@@ -48,4 +58,16 @@ section {
   background: #f2f2f2;
   padding: 10px;
   border-radius: 5px;
+}
+
+footer {
+  background: #f2f2f2;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
 }
