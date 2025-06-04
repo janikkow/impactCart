@@ -35,12 +35,12 @@ DocumentReady(function(){
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
       labels.push(monthNames[d.getMonth()]);
     }
-    // generate ascending totals
+
+    // generate individual monthly totals
     const totals = [];
-    let val = 3000;
     for(let i=0;i<labels.length;i++){
-      val += Math.floor(Math.random()*1500) + 500; // increase each month
-      totals.push(val);
+      totals.push(Math.floor(Math.random()*4000) + 1000);
+
     }
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
