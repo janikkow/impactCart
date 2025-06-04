@@ -28,16 +28,22 @@ DocumentReady(function(){
 DocumentReady(function(){
   const canvas = document.getElementById('impactChart');
   if(canvas){
-    const monate = ['Januar','Februar','M\u00e4rz','April','Mai','Juni'];
-    const gesamtStand = [1200,2500,4100,5800,7000,8300];
+    const monthNames = ['Januar','Februar','M\u00e4rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const now = new Date();
+    const labels = [];
+    for(let i = 5; i >= 0; i--){
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      labels.push(monthNames[d.getMonth()]);
+    }
+    const totals = labels.map(() => Math.floor(Math.random() * (9000 - 4000 + 1)) + 4000);
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: monate,
+        labels,
         datasets: [{
-          label: 'Impact Cart Gesamtstand (\u20AC)',
-          data: gesamtStand,
+          label: 'Impact Cart Gesamt (\u20AC)',
+          data: totals,
           backgroundColor: '#ff9800',
           borderRadius: 4,
           barThickness: 40
