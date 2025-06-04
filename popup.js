@@ -48,6 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({active:next});
         btn.textContent = next?'SPENDEN AKTIVIERT':'SPENDEN AKTIVIEREN';
         btn.classList.toggle('active', next);
+        if(next){
+          chrome.tabs.query({active:true, currentWindow:true}, tabs=>{
+            if(tabs.length){
+              chrome.runtime.sendMessage({action:'replaceLinks', tabId:tabs[0].id});
+            }
+          });
+        }
       });
     });
     sel.addEventListener('change', ()=>chrome.storage.sync.set({charity:sel.value}));
