@@ -1,6 +1,5 @@
 DocumentReady(function(){
   const barCtx = document.getElementById('donationChart');
-  const progressCtx = document.getElementById('goalChart');
   if(barCtx){
     const monthly = [4300,5200,6100,4800,5900,6700,5500,6200,5300,6100,4900,6600];
     new Chart(barCtx, {
@@ -20,26 +19,6 @@ DocumentReady(function(){
       }
     });
   }
-  if(progressCtx){
-    const own = 120;
-    const goal = 1000;
-    new Chart(progressCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Dein Beitrag','Ziel'],
-        datasets: [{
-          data: [own, goal-own],
-          backgroundColor: ['rgba(10,62,98,0.8)','rgba(10,62,98,0.2)'],
-          borderWidth: 0
-        }]
-      },
-      options: {
-        maintainAspectRatio: false,
-        cutout: '70%',
-        plugins: { legend: { display:false } }
-      }
-    });
-  }
 });
 
 DocumentReady(function(){
@@ -50,16 +29,22 @@ DocumentReady(function(){
 });
 
 DocumentReady(function(){
-  const fill = document.getElementById('progressFill');
+  const arc = document.getElementById('progressCircle');
   const text = document.getElementById('progressText');
-  if(fill && text){
+  const goalAmount = document.getElementById('goalAmount');
+  if(arc && text && goalAmount){
     const current = 120;
     const goal = 1000;
     const percent = Math.min(100, current / goal * 100);
+    const radius = arc.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    arc.style.strokeDasharray = circumference;
+    arc.style.strokeDashoffset = circumference;
     requestAnimationFrame(() => {
-      fill.style.width = percent + '%';
+      arc.style.strokeDashoffset = circumference - (percent / 100) * circumference;
     });
-    text.textContent = percent.toFixed(0) + '% des Ziels erreicht';
+    text.textContent = percent.toFixed(0) + '% deines Jahresziels';
+    goalAmount.textContent = 'Ziel: ' + goal.toFixed(0) + ' \u20AC';
   }
 });
 
