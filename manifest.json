@@ -11,7 +11,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_title": "Affiliate aktivieren",
     "default_icon": {
       "16": "icon16.png",
       "48": "icon16.png",

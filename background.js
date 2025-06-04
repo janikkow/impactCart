@@ -1,5 +1,6 @@
 // background.js
 
+
 // Empfängt Nachrichten vom Popup zum Ersetzen von Links
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === 'replaceLinks' && msg.tabId) {
@@ -8,6 +9,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       func: replaceAffiliateLinks
     });
   }
+
 });
 
 // Funktion, die in der Seite läuft und Links ersetzt
