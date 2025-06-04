@@ -26,6 +26,7 @@ DocumentReady(function(){
 });
 DocumentReady(function(){
   const canvas = document.getElementById('impactChart');
+  const totalBox = document.getElementById('impactTotalBox');
   if(canvas){
     const monthNames = ['Januar','Februar','Maerz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     const now = new Date();
@@ -34,7 +35,11 @@ DocumentReady(function(){
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
       labels.push(monthNames[d.getMonth()]);
     }
-    const totals = labels.map(() => Math.floor(Math.random() * (9000 - 4000 + 1)) + 4000);
+    // generate individual monthly totals
+    const totals = [];
+    for(let i=0;i<labels.length;i++){
+      totals.push(Math.floor(Math.random()*4000) + 1000);
+    }
     const ctx = canvas.getContext('2d');
     new Chart(ctx, {
       type: 'bar',
@@ -70,6 +75,12 @@ DocumentReady(function(){
         }
       }
     });
+
+    if(totalBox){
+      const lastVal = totals[totals.length - 1];
+      const monthName = monthNames[now.getMonth()];
+      totalBox.innerHTML = `<strong>Impact Cart Gesamt (${monthName}):</strong> ${lastVal.toLocaleString('de-DE', {minimumFractionDigits:2})} \u20AC`;
+    }
   }
 });
 
