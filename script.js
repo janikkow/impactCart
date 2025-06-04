@@ -24,11 +24,10 @@ DocumentReady(function(){
     goalAmount.textContent = 'Ziel: ' + goal.toFixed(0) + ' \u20AC';
   }
 });
-
 DocumentReady(function(){
   const canvas = document.getElementById('impactChart');
   if(canvas){
-    const monthNames = ['Januar','Februar','M\u00e4rz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const monthNames = ['Januar','Februar','Maerz','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     const now = new Date();
     const labels = [];
     for(let i = 5; i >= 0; i--){
