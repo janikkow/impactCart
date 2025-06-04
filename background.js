@@ -1,12 +1,15 @@
 // background.js
 
-// Sobald auf den Extension-Button geklickt wird:
-chrome.action.onClicked.addListener((tab) => {
-  // Injektion der Funktion replaceAffiliateLinks in den aktuellen Tab
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    func: replaceAffiliateLinks
-  });
+
+// Empfängt Nachrichten vom Popup zum Ersetzen von Links
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg.action === 'replaceLinks' && msg.tabId) {
+    chrome.scripting.executeScript({
+      target: { tabId: msg.tabId },
+      func: replaceAffiliateLinks
+    });
+  }
+
 });
 
 // Funktion, die in der Seite läuft und Links ersetzt
