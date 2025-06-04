@@ -11,7 +11,7 @@ DocumentReady(function(){
   const goalAmount = document.getElementById('goalAmount');
   if(arc && text && goalAmount){
     const current = 120;
-    const goal = 1000;
+    const goal = 200;
     const percent = Math.min(100, current / goal * 100);
     const radius = arc.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
