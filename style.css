@@ -14,8 +14,19 @@ header {
   background: #0A3E62;
   color: white;
   padding: 20px;
-  text-align: center;
   position: relative;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 header::before {
@@ -53,6 +64,12 @@ section {
   object-fit: cover;
 }
 
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 #overview {
   max-width: 1000px;
   margin: 0 auto;
@@ -82,8 +99,6 @@ footer a {
   text-decoration: none;
 }
 nav {
-  background: var(--main-color);
-  padding: 10px;
   text-align: center;
 }
 nav a {
