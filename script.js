@@ -42,5 +42,26 @@ DocumentReady(function(){
   }
 });
 
+DocumentReady(function(){
+  const track = document.querySelector('.carousel-track');
+  if(track){
+    track.innerHTML += track.innerHTML;
+  }
+});
+
+DocumentReady(function(){
+  const fill = document.getElementById('progressFill');
+  const text = document.getElementById('progressText');
+  if(fill && text){
+    const current = 120;
+    const goal = 1000;
+    const percent = Math.min(100, current / goal * 100);
+    requestAnimationFrame(() => {
+      fill.style.width = percent + '%';
+    });
+    text.textContent = percent.toFixed(0) + '% des Ziels erreicht';
+  }
+});
+
 // Removed the local DocumentReady function. Ensure common.js provides this function.
 
