@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const passIn  = document.getElementById('pass');
   const loginB  = document.getElementById('login-btn');
   const errP    = document.getElementById('login-error');
+  const dashB   = document.getElementById('dashboard-btn');
 
   // Prüfe Login
   chrome.storage.sync.get('loggedIn', d => {
@@ -49,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     sel.addEventListener('change', ()=>chrome.storage.sync.set({charity:sel.value}));
+    dashB.addEventListener('click', ()=>{
+      chrome.tabs.create({url: chrome.runtime.getURL('index.html')});
+    });
     // Footer-Links
     document.querySelectorAll('.footer a').forEach(a=>{
       a.addEventListener('click', e=>{
