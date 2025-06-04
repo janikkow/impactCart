@@ -13,6 +13,9 @@ DocumentReady(function(){
     const current = 120;
     const goal = 200;
     const percent = Math.min(100, current / goal * 100);
+    if (typeof chrome !== 'undefined' && chrome.storage) {
+      chrome.storage.sync.set({ collected: current, yearGoal: goal });
+    }
     const radius = arc.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
     arc.style.strokeDasharray = circumference;

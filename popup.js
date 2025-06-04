@@ -1,4 +1,4 @@
-const TARGET = 100;
+let TARGET = 100;
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginC = document.getElementById('login-container');
@@ -31,10 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function initMain() {
     mainC.style.display = 'block';
     // lade Zustand
-    chrome.storage.sync.get(['active','charity','collected'], data => {
-      const active   = data.active || false;
-      const charity  = data.charity || sel.value;
-      const collected= data.collected || 6.37;
+    chrome.storage.sync.get(['active','charity','collected','yearGoal'], data => {
+      const active    = data.active || false;
+      const charity   = data.charity || sel.value;
+      const collected = data.collected || 0;
+      TARGET          = data.yearGoal || TARGET;
       sel.value = charity;
       btn.textContent = active?'SPENDEN AKTIVIERT':'SPENDEN AKTIVIEREN';
       btn.classList.toggle('active', active);
@@ -67,7 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateProgress(value) {
     const pct = Math.min(100, value/TARGET*100);
-    prog.style.width = pct+'%';
+    prog.style.width = '0';
+    requestAnimationFrame(() => {
+      prog.style.width = pct + '%';
+    });
     amt.textContent = `Dein Beitrag: ${value.toFixed(2)} € gesammelt`;
   }
 });
