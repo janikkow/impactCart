@@ -10,9 +10,20 @@
 </head>
 <body>
   <header>
-    <h1>Willkommen bei Impact Cart</h1>
-    <p>Gemeinsam Gutes tun!</p>
+    <h1>Impact Cart</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="landing.html">Info</a>
+    </nav>
+    <h2 class="page-title">Willkommen bei Impact Cart</h2>
   </header>
+  <div id="account-dropdown">Account
+    <div class="account-content">
+      <h3 id="acc-user"></h3>
+      <p><strong>NGO:</strong> <span id="acc-charity"></span></p>
+      <p><strong>Beitrag:</strong> <span id="acc-amount"></span> €</p>
+    </div>
+  </div>
 
   <section id="organizations">
     <h2>Unsere Partner-Organisationen</h2>
@@ -24,9 +35,14 @@
     </div>
   </section>
 
+  <hr>
+
   <section id="overview">
-    <h2>Monatsübersicht Spenden</h2>
-    <canvas id="donationChart"></canvas>
+    <h2>Spendenübersicht</h2>
+    <div class="charts">
+      <canvas id="goalChart"></canvas>
+      <canvas id="donationChart"></canvas>
+    </div>
     <div class="summary">
       <div class="box"><strong>Dein Beitrag (Mai):</strong> 120,00 €</div>
       <div class="box"><strong>Impact Cart Gesamt (Mai):</strong> 5.230,00 €</div>
@@ -41,6 +57,7 @@
   </footer>
 
 
+  <script src="common.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
