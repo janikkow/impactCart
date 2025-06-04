@@ -42,13 +42,26 @@ section {
   padding: 20px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  justify-items: center;
+.carousel {
+  overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .card {
@@ -58,6 +71,8 @@ section {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 220px;
+  flex: 0 0 auto;
 }
 
 .card img {
@@ -165,4 +180,37 @@ canvas {
 
 #account-dropdown .account-content p {
   margin: 4px 0;
+}
+
+/* Fortschrittsanzeige */
+.progress-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  border-radius: 12px 0 0 12px;
+  transition: width 2s ease;
+}
+
+#progressText {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
 }

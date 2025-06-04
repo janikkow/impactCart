@@ -31,7 +31,8 @@
 
   <section id="organizations">
     <h2>Unsere Partner-Organisationen</h2>
-    <div class="grid">
+    <div class="carousel">
+      <div class="carousel-track">
         <a class="card-link" href="https://www.sos-kinderdorf.de"><div class="card"><img src="https://yt3.googleusercontent.com/Y8qMASj_7vO7MGMoqvKy2dMfL1fAKJzjo_Fazi3xymiqS3RsKjk1UzFu8auLmvlv_bI88XBzMw=s900-c-k-c0x00ffffff-no-rj" alt="SOS Kinderdorf"><h3>SOS Kinderdorf</h3></div></a>
         <a class="card-link" href="https://germanzero.de"><div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_GermanZero_fb_1-020.png/250px-Logo_GermanZero_fb_1-020.png" alt="German Zero"><h3>German Zero</h3></div></a>
         <a class="card-link" href="https://www.tafel.de"><div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Tafel_Deutschland_e.V..png" alt="Die Tafeln"><h3>Die Tafeln</h3></div></a>
@@ -39,6 +40,7 @@
         <a class="card-link" href="https://www.aktion-deutschland-hilft.de"><div class="card"><img src="https://www.tsg-helberhausen.de/wp-content/uploads/2015/10/adh_logo.gif" alt="Aktion Deutschland Hilft"><h3>Aktion Deutschland Hilft</h3></div></a>
         <a class="card-link" href="https://trinkwasserwald.de"><div class="card"><img src="https://betterplace-assets.betterplace.org/uploads/organisation/profile_picture/000/035/287/crop_original_bp1534504724_TWW-Logo-300dpi1.jpg" alt="Trinkwasserwald"><h3>Trinkwasserwald</h3></div></a>
       </div>
+    </div>
   </section>
 
   <hr>
@@ -48,6 +50,13 @@
     <div class="charts">
       <canvas id="goalChart"></canvas>
       <canvas id="donationChart"></canvas>
+    </div>
+    <!-- animierte Fortschrittsanzeige -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span id="progressText"></span>
     </div>
     <div class="summary">
       <div class="box"><strong>Dein Beitrag (Mai):</strong> 120,00 €</div>
