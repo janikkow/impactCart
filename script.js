@@ -42,7 +42,4 @@ DocumentReady(function(){
   }
 });
 
-function DocumentReady(cb){
-  if(document.readyState!=='loading')cb();
-  else document.addEventListener('DOMContentLoaded',cb);
-}
+// Removed the local DocumentReady function. Ensure common.js provides this function.
