@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impact Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Willkommen bei Impact Cart</h1>
+    <p>Gemeinsam Gutes tun!</p>
+  </header>
+
+  <section id="organizations">
+    <h2>Unsere Partner-Organisationen</h2>
+    <div class="grid">
+      <div class="card"><img src="https://source.unsplash.com/collection/857030/200x200?sig=1" alt="Organisation 1"><h3>Organisation A</h3></div>
+      <div class="card"><img src="https://source.unsplash.com/collection/857030/200x200?sig=2" alt="Organisation 2"><h3>Organisation B</h3></div>
+      <div class="card"><img src="https://source.unsplash.com/collection/857030/200x200?sig=3" alt="Organisation 3"><h3>Organisation C</h3></div>
+      <div class="card"><img src="https://source.unsplash.com/collection/857030/200x200?sig=4" alt="Organisation 4"><h3>Organisation D</h3></div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <h2>Monatsübersicht Spenden</h2>
+    <canvas id="donationChart"></canvas>
+    <div class="summary">
+      <div class="box"><strong>Dein Beitrag (Mai):</strong> 120,00 €</div>
+      <div class="box"><strong>Impact Cart Gesamt (Mai):</strong> 5.230,00 €</div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="landing.html#privacy">Datenschutz</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="landing.html#about">Über uns</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
