@@ -10,11 +10,31 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   }
 });
 
+// Führt das Ersetzen automatisch nach jedem vollständigen Seitenaufruf aus
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === 'complete') {
+    chrome.storage.sync.get('active', d => {
+      if (shouldReplaceLinks(d.active, tab.url, 'https://www.amazon.de/')) {
+        chrome.scripting.executeScript({
+          target: { tabId },
+          func: replaceAffiliateLinks
+        });
+      }
+    });
+
+// Helper function to determine if links should be replaced
+function shouldReplaceLinks(active, url, prefix) {
+  return active && url && url.startsWith(prefix);
+}
+  }
+});
+
 // Funktion, die in der Seite läuft und Links ersetzt
 function replaceAffiliateLinks() {
-  // Fest definiertes Produkt (Beispiel-ASIN)
-  const produktUrl = "https://www.amazon.de/dp/B08N5WRWNW";
-  const affiliateUrl = produktUrl + "/?tag=affiliate-tag-20";
+  // Fest definierter Test-Link
+  const produktUrl =
+    "https://www.amazon.de/Anker-Powerbank-Powerstation-Solargenerator-Lieferumfang/dp/B0D62PMB3R/";
+  const affiliateUrl = produktUrl + "?tag=affiliate-tag-20";
 
   // Alle <a>-Elemente prüfen
   document.querySelectorAll("a[href]").forEach(a => {
