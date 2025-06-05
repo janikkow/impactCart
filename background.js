@@ -9,7 +9,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     });
   }
 });
-
 // Führt das Ersetzen automatisch nur für den aktiven Tab nach jedem
 // vollständigen Seitenaufruf aus
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -21,6 +20,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         tab.url &&
         tab.url.startsWith('https://www.amazon.de/')
       ) {
+
         chrome.scripting.executeScript({
           target: { tabId },
           func: replaceAffiliateLinks
