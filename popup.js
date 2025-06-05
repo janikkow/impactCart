@@ -51,7 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if(next){
           chrome.tabs.query({active:true, currentWindow:true}, tabs=>{
             if(tabs.length){
-              chrome.runtime.sendMessage({action:'replaceLinks', tabId:tabs[0].id});
+              const url = tabs[0].url || '';
+              if(url.startsWith('http')){
+                chrome.runtime.sendMessage({action:'replaceLinks', tabId:tabs[0].id});
+              } else {
+                console.warn('Cannot inject script into:', url);
+              }
             }
           });
         }
