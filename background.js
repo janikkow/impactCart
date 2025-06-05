@@ -9,23 +9,24 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     });
   }
 });
-
-// Führt das Ersetzen automatisch nach jedem vollständigen Seitenaufruf aus
+// Führt das Ersetzen automatisch nur für den aktiven Tab nach jedem
+// vollständigen Seitenaufruf aus
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete') {
     chrome.storage.sync.get('active', d => {
-      if (shouldReplaceLinks(d.active, tab.url, 'https://www.amazon.de/')) {
+      if (
+        d.active &&
+        tab.active &&
+        tab.url &&
+        tab.url.startsWith('https://www.amazon.de/')
+      ) {
+
         chrome.scripting.executeScript({
           target: { tabId },
           func: replaceAffiliateLinks
         });
       }
     });
-
-// Helper function to determine if links should be replaced
-function shouldReplaceLinks(active, url, prefix) {
-  return active && url && url.startsWith(prefix);
-}
   }
 });
 
