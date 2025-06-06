@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sel     = document.getElementById('charity');
   const prog    = document.getElementById('progress');
   const amt     = document.getElementById('amount');
+  const info    = document.getElementById('info-text');
   const userIn  = document.getElementById('user');
   const passIn  = document.getElementById('pass');
   const loginB  = document.getElementById('login-btn');
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sel.value = charity;
       btn.textContent = active?'SPENDEN AKTIVIERT':'SPENDEN AKTIVIEREN';
       btn.classList.toggle('active', active);
+      updateInfo(active);
       updateProgress(collected);
     });
     // Klick-Handler
@@ -48,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({active:next});
         btn.textContent = next?'SPENDEN AKTIVIERT':'SPENDEN AKTIVIEREN';
         btn.classList.toggle('active', next);
+        updateInfo(next);
         if(next){
           chrome.tabs.query({active:true, currentWindow:true}, tabs=>{
             if(tabs.length){
@@ -85,5 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
       prog.style.width = pct + '%';
     });
     amt.textContent = `Dein Beitrag: ${value.toFixed(2)} € gesammelt`;
+  }
+
+  function updateInfo(active) {
+    info.textContent = active
+      ? 'Wenn du jetzt einkaufst, fließt ein Teil an eine NGO.'
+      : 'Aktiviere Spenden, damit ein Teil deines Einkaufs an eine NGO fließt.';
   }
 });
