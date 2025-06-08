@@ -58,5 +58,5 @@ impactCart/
 
 ---
 
-Dieses Projekt ist ein statischer Prototyp. Er veranschaulicht die grundsätzliche Funktionsweise eines Spenden-Addons und kann als Basis für eigene Experimente dienen.
+Dieses Projekt ist ein statischer Prototyp. Er veranschaulicht die grundsätzliche Funktionsweise eines Spenden-Addons im Rahmen der Modularbeit digitale Geschäftsmodelle.
 
