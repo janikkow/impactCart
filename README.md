@@ -1,58 +1,62 @@
-# Gutes tun beim Einkaufen
+# Impact Cart – Gutes tun beim Einkaufen
 
-Eine Browser-Extension (Chrome MV3) als Dummy zum Aktivieren von Spenden über Affiliate-Links.
+Diese Erweiterung demonstriert, wie man beim Online-Shopping automatisch Spenden über Affiliate-Links generieren kann. Sie basiert auf Manifest V3 und funktioniert in Chrome oder Edge. Alle Oberflächen sind statisch und dienen als Prototyp für Tests und Demos.
 
-## Features
+## Funktionsübersicht
 
-* Login (Admin/Admin) im Popup
-* Aktivieren/Deaktivieren der Spendenfunktion
-* Auswahl einer gemeinnützigen Organisation
-* Fortschrittsanzeige (gesammelter Betrag)
-* Links zu "Über uns", "Datenschutz" und "Mehr erfahren"
-* Index-Seite nach Login mit Partnerübersicht und Spendenchart
-* Landing-Page mit Account-Übersicht und Info-Bereichen
+- **Login im Popup**: Einfacher Login mit `admin/admin`.
+- **Spenden aktivieren**: Ein Schalter ermöglicht das Einschalten der Link-Ersetzung. Wird ein unterstützter Shop geöffnet, ersetzt die Erweiterung Produktlinks durch Affiliate-Links.
+- **Organisation wählen**: Im Popup kann eine NGO ausgewählt werden. Die Wahl wird im Speicher abgelegt.
+- **Fortschritt verfolgen**: Gesammelte Beträge werden in einer Fortschrittsleiste sowie im Dashboard angezeigt.
+- **Dashboard und Infoseiten**: Nach dem Login steht ein Dashboard (`index.html`) mit Chart sowie mehrere Informationsseiten (`landing.html`, `about.html`, `datenschutz.html`, `impressum.html`) zur Verfügung.
 
 ## Voraussetzungen
 
-* Chrome oder Edge in Version mit MV3-Unterstützung
-* Entwickler-Modus für Erweiterungen aktiviert
+- Chrome oder Edge mit MV3-Unterstützung
+- Entwicklermodus für Erweiterungen aktiviert
 
 ## Installation
 
-1. Repository klonen oder als ZIP herunterladen:
-
+1. Repository klonen oder als ZIP herunterladen
    ```bash
-   git clone https://github.com/DEIN_USER/GutesTuen.git
+   git clone <dieses-repo>
    ```
-2. Chrome öffnen und `chrome://extensions/` laden.
-3. Entwicklermodus einschalten.
-4. Auf "Entpackte Erweiterung laden" klicken und Ordner `GutesTuen` auswählen.
+2. Browser öffnen und `chrome://extensions/` aufrufen
+3. Entwicklermodus aktivieren
+4. Auf **Entpackte Erweiterung laden** klicken und den Projektordner auswählen
 
 ## Nutzung
 
-1. Extension-Icon anklicken.
-2. Mit **admin/admin** einloggen.
-3. Spendenfunktion aktivieren/deaktivieren.
-4. Organisation aus Dropdown wählen.
-5. Footer-Links öffnen Landing-Page in neuem Tab.
+1. Auf das Erweiterungssymbol klicken und mit **admin/admin** anmelden
+2. Spendenfunktion aktivieren
+3. Eine Organisation auswählen
+4. Die automatische Ersetzung von Links durch Affiliate-Versionen wird aktuell als Backend-Funktion entwickelt
+5. Über **Dashboard öffnen** gelangt man zum Hauptbereich der Erweiterung
 
-## Ordnerstruktur
+## Projektstruktur
 
 ```
-GutesTuen/
-├─ manifest.json       # Manifest V3
-├─ popup.html/css/js    # Haupt-Popup mit Login & UI
-├─ index.html/css/js    # Erste Seite nach Login
-├─ landing.html/css/js  # Info- und Accountbereiche
-└─ icons/               # Beispiel-Icons (16/48/128 px)
+impactCart/
+├─ manifest.json       # Manifest V3 der Erweiterung
+├─ popup.html/.css/.js # Login und Hauptbedienung
+├─ index.html/.css/.js # Dashboard mit Fortschrittsanzeige und Chart
+├─ landing.html        # Allgemeine Informationen und Account-Bereich
+├─ about.html          # Hintergrund zum Projekt
+├─ datenschutz.html    # Datenschutzhinweise (Platzhalter)
+├─ impressum.html      # Rechtliche Angaben (Platzhalter)
+├─ login.html/.js      # Alternative Login-Seite
+├─ background.js       # Ersetzt Links in aktiven Tabs
+├─ common.js           # Gemeinsame Hilfsfunktionen
+└─ weitere Assets wie CSS und Bilder
 ```
 
 ## Anpassung
 
-* Texte in `index.html` oder `landing.html` ändern
-* Styles in `.css` anpassen
-* Icons in `icons/` ersetzen
+- Inhalte der HTML-Dateien können beliebig geändert werden
+- Styles befinden sich in `style.css` bzw. `landing.css`
+- Die Logik zum Ersetzen der Links liegt in `background.js` und kann angepasst werden
 
 ---
 
-Kurz, prägnant und einsatzbereit als Dummy-Addon für Tests und Demos.
+Dieses Projekt ist ein statischer Prototyp. Er veranschaulicht die grundsätzliche Funktionsweise eines Spenden-Addons und kann als Basis für eigene Experimente dienen.
+
