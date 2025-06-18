@@ -192,6 +192,17 @@ canvas {
   margin: 4px 0;
 }
 
+#account-dropdown .logout-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 6px;
+  background: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /* Fortschrittsanzeige */
 .progress-container {
   width: 100%;

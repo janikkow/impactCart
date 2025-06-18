@@ -5,9 +5,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.getElementById('acc-charity').textContent  = d.charity || '–';
     document.getElementById('acc-amount').textContent   = (d.collected||0).toFixed(2);
   });
-  document.getElementById('logout').addEventListener('click', ()=>{
-    chrome.storage.sync.clear(()=>{
-      location.href='login.html';
-    });
-  });
 });
