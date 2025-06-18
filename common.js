@@ -7,6 +7,19 @@ DocumentReady(function(){
       document.querySelectorAll('#acc-amount').forEach(el=> el.textContent = (d.collected||0).toFixed(2));
     });
   }
+
+  const logout = document.getElementById('logout');
+  if(logout){
+    logout.addEventListener('click', () => {
+      if(typeof chrome !== 'undefined' && chrome.storage){
+        chrome.storage.sync.clear(() => {
+          location.href = 'login.html';
+        });
+      } else {
+        location.href = 'login.html';
+      }
+    });
+  }
 });
 
 function DocumentReady(cb){
